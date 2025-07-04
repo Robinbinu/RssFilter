@@ -1,54 +1,54 @@
-为方便薅阿里云函数计算的羊毛，将 [RSSHub-Python](https://github.com/hillerliao/RSSHub-python) 项目里的 [RSS 过滤器](https://pyrsshub.vercel.app/feeds)功能独立出来，做成阿里云函数计算的版本。
+To make it easier to utilize Alibaba Cloud Function Compute's free tier, this project extracts the [RSS Filter](https://pyrsshub.vercel.app/feeds) feature from the [RSSHub-Python](https://github.com/hillerliao/RSSHub-python) project and adapts it for Alibaba Cloud Function Compute.
 
-项目地址：`https://github.com/hillerliao/RssFilter`
+Project address: `https://github.com/hillerliao/RssFilter`
 
-部署方法记录如下：
+Deployment instructions are as follows:
 
-## 一、创建服务
+## 1. Create Service
 
-1、进入[阿里云函数计算](https://fcnext.console.aliyun.com/overview)后台，点击创建服务。
+1. Go to [Alibaba Cloud Function Compute](https://fcnext.console.aliyun.com/overview) dashboard and click "Create Service".
 
-![阿里云函数计算概览](https://github.com/easychen/wecomchan/raw/main/python-aliyunfc/pic/image-20220205142747826.png)
+![Alibaba Cloud Function Compute Overview](https://github.com/easychen/wecomchan/raw/main/python-aliyunfc/pic/image-20220205142747826.png)
 
-2、填入服务名称，比如 `RssFilter`，点击确定。
+2. Enter a service name (e.g., `RssFilter`) and click "Confirm".
 
-![阿里云函数计算-创建服务](https://raw.githubusercontent.com/hillerliao/img/main/20220918133712.png)
+![Alibaba Cloud Function Compute - Create Service](https://raw.githubusercontent.com/hillerliao/img/main/20220918133712.png)
 
-## 二、配置函数
+## 2. Configure Function
 
-3、配置函数。
+3. Configure the function.
 
-3.1 进入刚创建的服务，点击`创建函数`；  
-3.2 选择`使用自定义运行时创建`，填写函数名称，如`main`；  
-3.3 代码上传方式选择`通过 ZIP 包上传代码`，将本项目仓库中的[过滤器zip代码包](https://github.com/hillerliao/RssFilter/blob/main/func-code-4-RSSFilter.zip)`func-code-4-RSSFilter.zip`下载后上传；  
-3.4 启动命令填入`python app.py`；  
+3.1 Enter the newly created service and click `Create Function`;  
+3.2 Select `Create with Custom Runtime`, enter function name (e.g., `main`);  
+3.3 For code upload method, choose `Upload ZIP Package`, download and upload the [filter ZIP package](https://github.com/hillerliao/RssFilter/blob/main/func-code-4-RSSFilter.zip)`func-code-4-RSSFilter.zip` from this repository;  
+3.4 Enter `python app.py` as the startup command;  
 
-点击 `创建`。
+Click `Create`.
 
-![阿里云函数计算-配置函数](https://raw.githubusercontent.com/hillerliao/img/main/20220918134114.png)
+![Alibaba Cloud Function Compute - Configure Function](https://raw.githubusercontent.com/hillerliao/img/main/20220918134114.png)
 
-## 三、获取地址
+## 3. Get Access Address
 
-4、获得测试地址，带上路径和参数，如 `/filter?feed=<rss 地址>&include_title=<过滤词>` 支持的参数同 RSSHub-Python 的 [RSS Filter参数](https://pyrsshub.vercel.app/feeds)
+4. Obtain the test address with path and parameters, such as `/filter?feed=<RSS URL>&include_title=<filter keyword>`. Supported parameters are the same as RSSHub-Python's [RSS Filter parameters](https://pyrsshub.vercel.app/feeds).
 
-![阿里云函数计算-获取函数公网地址](https://raw.githubusercontent.com/hillerliao/img/main/20220918134337.png)
+![Alibaba Cloud Function Compute - Get Public Function Address](https://raw.githubusercontent.com/hillerliao/img/main/20220918134337.png)
 
-示例：
+Example:
 
 `http://<testing sub domain for fc>.cn-beijing.functioncompute.com/filter?feed=https://sspai.com/feed&include_title=派评`
 
-5、测试验证通过后，点击 `部署代码`，部署完成。
+5. After successful testing, click `Deploy Code` to complete deployment.
 
-![阿里云函数计算-在线编辑器](https://raw.githubusercontent.com/hillerliao/img/main/20220918134819.png)
+![Alibaba Cloud Function Compute - Online Editor](https://raw.githubusercontent.com/hillerliao/img/main/20220918134819.png)
 
-## 四、制作 RSS 过滤器的初衷
+## 4. Original Purpose of RSS Filter
 
-回顾我作 RSS 过滤器的初心：提高信息获取效率。
+Reflecting on my original intention for creating the RSS Filter: to improve information acquisition efficiency.
 
-比如，有些 RSS，我只关心带有特定关键词的内容；另一些 RSS，我不想看到含有特定关键词的广告内容。有了 RSS 过滤器，这些需求都能得到满足。
+For example, for some RSS feeds, I only care about content containing specific keywords; for others, I want to exclude content with certain advertising keywords. The RSS Filter can satisfy these needs.
 
-好了，如果你觉得本项目对你有用，不妨请我喝杯咖啡。
+If you find this project useful, you can buy me a coffee.
 
-![个人微信收款码-智海](https://raw.githubusercontent.com/hillerliao/img/main/IMG_0096%20copy.jpg)
+![Personal WeChat Payment QR Code - Zhihai](https://raw.githubusercontent.com/hillerliao/img/main/IMG_0096%20copy.jpg)
 
-如果有改进建议，欢迎交流。微信： `hillerliao`。
+For improvement suggestions, feel free to contact me. WeChat: `hillerliao`.
